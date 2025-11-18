@@ -1,14 +1,29 @@
-import React,{useState} from "react";
+import React,{useEffect, useState} from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function Register() {
   const[user,setUser]=useState("");
   const[email,setEmail]=useState("");
   const[password,setPassword]=useState("");
-  const handleRegister=(e)=>{
+  const navigate=useNavigate();
+  const handleRegister=async (e) =>{
     e.preventDefault();
-    console.log(user);
-    console.log(email);
-    console.log(password);
+    try{
+      const response=await axios.post("http://localhost:5000/api/user/register",{
+        userName:user,
+        email:email,
+        password:password
+      })
+      console.log("Registration successfull",response)
+      if(response.status===200){
+        navigate("/login")
+      }
+    
+    }
+    catch(error){
+      console.log("something went wrong",error.message)
+    }
   }
   return (
     <div className="w-full h-screen flex justify-center items-center bg-gray-100">
