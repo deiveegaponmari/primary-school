@@ -1,0 +1,22 @@
+{
+  "navbar": {
+    "schoolName":"SRI NATARAJA PRIMARY SCHOOL",
+    "admissionForm":"ADMISSION FORM",
+    "login":"Login",
+    "home": "HOME",
+    "about": "ABOUT US",
+    "pre-primary":"PRE-PRIMARY",
+    "primary":"PRIMARY",
+    "studentlife":"STUDENT LIFE",
+    "uniforms":"UNIFORMS",
+    "gallery": "GALLERY",
+    "achievements":"ACHIEVEMENTS",
+    "services": "SERVICES",
+    "feedback": "FEEDBACK",
+    "contact": "CONTACT"
+  },
+  "home": {
+    "welcome": "Welcome to Our School",
+    "description": "A place where children grow and learn."
+  }
+}
