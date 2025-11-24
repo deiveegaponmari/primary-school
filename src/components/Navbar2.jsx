@@ -21,7 +21,7 @@ function Navbar2() {
   const { t } = useTranslation();
   const [open, setOpen] = useState(false);
   const navItems = [
-    { label: t("navbar.home"), path: "/home" },
+    { label: t("navbar.home"), path: "/" },
     { label: t("navbar.about"), path: "/about" },
     { label: t("navbar.pre-primary") },
     { label: t("navbar.primary") },
