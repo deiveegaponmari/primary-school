@@ -2,10 +2,13 @@ import React from "react";
 import SchoolIcon from "@mui/icons-material/School";
 import LanguageSwitcher from "./LanguageSwitcher";
 import { useTranslation } from "react-i18next";
-import { AppBar, Toolbar, IconButton, Box, Typography ,Button} from "@mui/material";
+import { AppBar, Toolbar, IconButton, Box, Typography
+   ,Button} from "@mui/material";
+   import { useNavigate } from "react-router-dom";
 
 function Navbar() {
   const { t } = useTranslation();
+  const navigate=useNavigate();
   return (
     <AppBar
       position="sticky"
@@ -20,14 +23,15 @@ function Navbar() {
           <IconButton>
             <SchoolIcon />
           </IconButton>
-          <Typography>
+          <Typography onClick={()=>navigate("/")} style={{cursor:"pointer"}}>
             {t("navbar.schoolName")}
           </Typography>
         </Box>
     {/*   right side -button and links */}
     <Box sx={{display:"flex",gap:2}}>
-        <Button variant="contained">{t("navbar.admissionForm")}</Button>
-        <Button variant="contained">{t("navbar.login")}</Button>
+        <Button variant="contained" onClick={() =>navigate("/admissionform")}>{t("navbar.admissionForm")}</Button>
+        <Button variant="contained" onClick={()=>navigate('/login')}>{t("navbar.login")}
+        </Button>
     </Box>
         <LanguageSwitcher />
       </Toolbar>

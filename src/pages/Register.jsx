@@ -62,6 +62,15 @@ function Register() {
 
           <button type="submit" onClick={handleRegister}  className="mt-4 bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition">Register</button>
         </form>
+         <p className="text-gray-600 text-center mt-4">Or</p>
+        <p className="text-gray-700 text-center ">Already have an account?</p>
+        <button
+            type="submit"
+            onClick={()=>navigate('/login')}
+            className=" w-full mt-4 bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition"
+          >
+           Login
+          </button>
       </div>
     </div>
   );

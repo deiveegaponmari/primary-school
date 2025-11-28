@@ -23,14 +23,14 @@ function Navbar2() {
   const navItems = [
     { label: t("navbar.home"), path: "/" },
     { label: t("navbar.about"), path: "/about" },
-    { label: t("navbar.pre-primary") },
-    { label: t("navbar.primary") },
-    { label: t("navbar.studentlife") },
-    { label: t("navbar.uniforms") },
-    { label: t("navbar.gallery") },
-    { label: t("navbar.achievements") },
-    { label: t("navbar.feedback") },
-    { label: t("navbar.contact") },
+    { label: t("navbar.pre-primary"),path:"/preprimary" },
+    { label: t("navbar.primary"),path:"/primary" },
+    { label: t("navbar.studentlife"),path:"/studentlife" },
+    { label: t("navbar.uniforms"),path:"/uniforms"},
+    { label: t("navbar.gallery"),path:"/gallery"},
+    { label: t("navbar.achievements"),path:"/achievement" },
+    { label: t("navbar.feedback"),path:"/feedback" },
+    { label: t("navbar.contact"),path:"/contact" },
   ];
   return (
     <>
