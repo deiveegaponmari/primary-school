@@ -4,7 +4,8 @@ function Footer() {
   return (
     <>
       <footer>
-        <h2>Our Location</h2>
+        <h2 className="mt-3 text-3xl font-extrabold text-blue-800 mb-3 
+        text-center">Visit Our Location Below</h2>
         <div style={{ width: "100%", height: "300px" }}>
           <iframe
             title="school-location"
