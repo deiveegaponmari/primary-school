@@ -45,7 +45,7 @@ function Register() {
             <label className="text-gray-600 font-medium mb-1">Email</label>
             <input
               type="text"
-              placeholder="Enter Your Name"
+              placeholder="Enter Your Email"
                onChange={(e)=>setEmail(e.target.value)}
               className="border border-gray-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
@@ -53,8 +53,8 @@ function Register() {
           <div className="flex flex-col">
             <label className="text-gray-600 font-medium mb-1">Password</label>
             <input
-              type="text"
-              placeholder="Enter Your Name"
+              type="password"
+              placeholder="Enter Your Password"
                onChange={(e)=>setPassword(e.target.value)}
               className="border border-gray-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />

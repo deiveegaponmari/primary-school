@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import axios from "axios";
+import api from "../api/apiConfig";
+import { useNavigate } from "react-router-dom";
 
 function AdmissionForm() {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     studentName: "",
     parentName: "",
@@ -15,11 +18,13 @@ function AdmissionForm() {
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const token = localStorage.getItem("authToken");
+    if (!token) {
+      setMessage("Please Login Before submitting the Admission Form");
+      setTimeout(() => navigate("/login"), 5000);
+    }
     try {
-      const response = await axios.post(
-        "http://localhost:5000/api/admission/Users",
-        formData
-      );
+      const response = await api.post("/admission/Users",formData);
       setMessage(response.data.message);
       // Clear input fields
       setFormData({
@@ -30,7 +35,7 @@ function AdmissionForm() {
         className: "",
       });
     } catch {
-      setMessage("Submission Failed");
+      setMessage("Submission Failed,Try Again");
     }
   };
   return (
@@ -56,7 +61,7 @@ function AdmissionForm() {
             name="studentName"
             placeholder="Student Name"
             onChange={handleChange}
-             value={formData.studentName}
+            value={formData.studentName}
             className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-400"
             required
           />
@@ -64,7 +69,7 @@ function AdmissionForm() {
           <input
             name="parentName"
             placeholder="Parent Name"
-             value={formData.parentName}
+            value={formData.parentName}
             onChange={handleChange}
             className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-400"
             required
@@ -74,7 +79,7 @@ function AdmissionForm() {
             name="email"
             placeholder="Email"
             onChange={handleChange}
-             value={formData.email}
+            value={formData.email}
             className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-400"
             required
           />
@@ -83,7 +88,7 @@ function AdmissionForm() {
             name="phone"
             placeholder="Phone"
             onChange={handleChange}
-             value={formData.phone}
+            value={formData.phone}
             className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-400"
             required
           />
@@ -92,7 +97,7 @@ function AdmissionForm() {
             name="className"
             placeholder="Class Applying For"
             onChange={handleChange}
-             value={formData.className}
+            value={formData.className}
             className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-400"
             required
           />
