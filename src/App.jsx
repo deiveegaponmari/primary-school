@@ -10,12 +10,12 @@ import Pre_primary from './components/Pre_primary'
 import Primary from './components/Primary';
 import Student_life from './components/Student_life'
 import Gallery from './components/Gallery'
-import Uniforms from './components/Uniforms'
 import Achievement from './components/Achievement'
 import Feedback from './components/Feedback'
 import Contact from './components/Contact'
 import PublicLayout from './Layouts/PublicLayout'
 import AuthLayout from './Layouts/AuthLayout'
+import FreeService from './components/FreeService'
 
 function App() {
 
@@ -32,7 +32,7 @@ function App() {
           <Route path='/preprimary' element={<PublicLayout><Pre_primary/></PublicLayout>}></Route>
           <Route path='/primary' element={<PublicLayout><Primary/></PublicLayout>}></Route>
           <Route path='/studentlife' element={<PublicLayout><Student_life/></PublicLayout>}></Route>
-          <Route path='/uniforms' element={<PublicLayout><Uniforms/></PublicLayout>}></Route>
+          <Route path='/freeservice' element={<PublicLayout><FreeService/></PublicLayout>}></Route>
           <Route path='/gallery' element={<PublicLayout><Gallery/></PublicLayout>}></Route>
           <Route path='/achievement' element={<PublicLayout><Achievement/></PublicLayout>}></Route>
           <Route path='/feedback' element={<PublicLayout><Feedback/></PublicLayout>}></Route>

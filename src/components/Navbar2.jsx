@@ -26,7 +26,7 @@ function Navbar2() {
     { label: t("navbar.pre-primary"),path:"/preprimary" },
     { label: t("navbar.primary"),path:"/primary" },
     { label: t("navbar.studentlife"),path:"/studentlife" },
-    { label: t("navbar.uniforms"),path:"/uniforms"},
+    { label: t("navbar.freeservice"),path:"/freeservice"},
     { label: t("navbar.gallery"),path:"/gallery"},
     { label: t("navbar.achievements"),path:"/achievement" },
     { label: t("navbar.feedback"),path:"/feedback" },
