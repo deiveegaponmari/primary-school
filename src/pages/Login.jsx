@@ -14,9 +14,12 @@ function Login() {
         password:password
       })
       console.log("login successfull",response)
-      if(response.status===200){
-        navigate("/dashboard")
+    
+      if(response.data.token){
+        //store token to localstorage
+        localStorage.setItem("authToken",response.data.token)
       }
+       navigate("/")
     }
     catch(error){
       console.log("something went wrong",error.message)

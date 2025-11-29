@@ -56,6 +56,7 @@ function AdmissionForm() {
             name="studentName"
             placeholder="Student Name"
             onChange={handleChange}
+             value={formData.studentName}
             className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-400"
             required
           />
@@ -63,6 +64,7 @@ function AdmissionForm() {
           <input
             name="parentName"
             placeholder="Parent Name"
+             value={formData.parentName}
             onChange={handleChange}
             className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-400"
             required
@@ -72,6 +74,7 @@ function AdmissionForm() {
             name="email"
             placeholder="Email"
             onChange={handleChange}
+             value={formData.email}
             className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-400"
             required
           />
@@ -80,6 +83,7 @@ function AdmissionForm() {
             name="phone"
             placeholder="Phone"
             onChange={handleChange}
+             value={formData.phone}
             className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-400"
             required
           />
@@ -88,6 +92,7 @@ function AdmissionForm() {
             name="className"
             placeholder="Class Applying For"
             onChange={handleChange}
+             value={formData.className}
             className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-400"
             required
           />
