@@ -2,26 +2,21 @@ import React from "react";
 
 function Feedback() {
   return (
-     <div>
+    <div>
       <div>
         <img
           src="https://res.cloudinary.com/djlxdttvr/image/upload/v1764411397/cytonn-photography-GJao3ZTX9gU-unsplash_mak29k.jpg"
           alt="Feedback image"
         />
-        <h1 className="text-4xl font-bold text-blue-800 mt-4 p-3 text-center">Feedback</h1>
+        <h1 className="text-4xl font-bold text-blue-800 mt-4 p-3 text-center">
+          Feedback
+        </h1>
         <p className="text-xl bg-blue-100 p-6 m-6">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. In at tortor
-          odio. Donec libero ipsum, viverra at ultricies vel, molestie at ipsum.
-          Fusce imperdiet cursus ex. Praesent scelerisque elementum magna, a
-          cursus mauris tincidunt quis. Ut imperdiet consectetur enim, vitae
-          laoreet arcu vehicula at. Aenean placerat ultrices erat, sed lobortis
-          arcu eleifend ac. Cras laoreet ante risus, sit amet consectetur nibh
-          suscipit vitae. Aliquam erat volutpat. Morbi orci turpis, pulvinar at
-          justo vel, consequat placerat mauris. Integer volutpat enim vel lacus
-          viverra, at gravida sem ultrices. Proin eleifend elit tempus purus
-          eleifend, vitae sollicitudin nulla molestie. Praesent vestibulum quam
-          at enim aliquam, at varius diam faucibus. Ut feugiat at elit vitae
-          mollis.
+          Feedback plays a key role in improving educational quality and the
+          overall school experience. We encourage parents, students, and
+          stakeholders to share their thoughts, suggestions, and concerns so we
+          can continue to enhance our teaching, facilities, and learning
+          environment.
         </p>
       </div>
     </div>

@@ -2,26 +2,22 @@ import React from "react";
 
 function Student_life() {
   return (
-   <div>
+    <div>
       <div>
         <img
           src="https://res.cloudinary.com/djlxdttvr/image/upload/v1764409470/herlambang-tinasih-gusti-Axwia92agr0-unsplash_odobh0.jpg"
           alt="student life image"
         />
-        <h1 className="text-4xl font-bold text-blue-800 mt-4 p-3 text-center">Student Life</h1>
+        <h1 className="text-4xl font-bold text-blue-800 mt-4 p-3 text-center">
+          Student Life
+        </h1>
         <p className="text-xl bg-blue-100 p-6 m-6">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. In at tortor
-          odio. Donec libero ipsum, viverra at ultricies vel, molestie at ipsum.
-          Fusce imperdiet cursus ex. Praesent scelerisque elementum magna, a
-          cursus mauris tincidunt quis. Ut imperdiet consectetur enim, vitae
-          laoreet arcu vehicula at. Aenean placerat ultrices erat, sed lobortis
-          arcu eleifend ac. Cras laoreet ante risus, sit amet consectetur nibh
-          suscipit vitae. Aliquam erat volutpat. Morbi orci turpis, pulvinar at
-          justo vel, consequat placerat mauris. Integer volutpat enim vel lacus
-          viverra, at gravida sem ultrices. Proin eleifend elit tempus purus
-          eleifend, vitae sollicitudin nulla molestie. Praesent vestibulum quam
-          at enim aliquam, at varius diam faucibus. Ut feugiat at elit vitae
-          mollis.
+          Student life at our school is filled with joy, learning, and exciting
+          opportunities. From sports and arts to academic clubs and cultural
+          activities, students are encouraged to explore their interests and
+          discover their strengths. We believe that learning goes beyond
+          textbooks, and our environment supports creativity, friendships,
+          teamwork, and meaningful experiences every day.
         </p>
       </div>
     </div>
