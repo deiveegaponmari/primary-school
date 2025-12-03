@@ -1,30 +1,34 @@
-import React,{useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 function Register() {
-  const[user,setUser]=useState("");
-  const[email,setEmail]=useState("");
-  const[password,setPassword]=useState("");
-  const navigate=useNavigate();
-  const handleRegister=async (e) =>{
+  const [user, setUser] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [role, setRole] = useState("");
+  const navigate = useNavigate();
+  const handleRegister = async (e) => {
     e.preventDefault();
-    try{
-      const response=await axios.post("http://localhost:5000/api/user/register",{
-        userName:user,
-        email:email,
-        password:password
-      })
-      console.log("Registration successfull",response)
-      if(response.status===200){
-        navigate("/login")
+    const finalRole=role.trim() === "" ? "User" : role;
+    try {
+      const response = await axios.post(
+        "http://localhost:5000/api/user/register",
+        {
+          userName: user,
+          email: email,
+          password: password,
+          role:finalRole
+        }
+      );
+      console.log("Registration successfull", response);
+      if (response.status === 200) {
+        navigate("/login");
       }
-    
+    } catch (error) {
+      console.log("something went wrong", error.message);
     }
-    catch(error){
-      console.log("something went wrong",error.message)
-    }
-  }
+  };
   return (
     <div className="w-full h-screen flex justify-center items-center bg-gray-100">
       <div className="bg-white shadow-xl rounded-xl p-8 w-full max-w-md">
@@ -37,16 +41,32 @@ function Register() {
             <input
               type="text"
               placeholder="Enter Your Name"
-              onChange={(e)=>setUser(e.target.value)}
+              onChange={(e) => setUser(e.target.value)}
               className="border border-gray-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
+          </div>
+          <div className="flex flex-col">
+            <label className="text-gray-600 font-medium mb-1">Role</label>
+            <select value={role}
+              type="text"
+              placeholder="Select Your Role"
+              onChange={(e) => setRole(e.target.value)}
+              className="border border-gray-300 rounded-lg p-2 
+              focus:outline-none focus:ring-2 focus:ring-blue-500"
+            >
+              <option value="">-- Select Role --</option>
+              <option value="Admin">Admin</option>
+              <option value="User">User</option>
+              <option value="Student">Student</option>
+              <option value="Parent">Parent</option>
+            </select>
           </div>
           <div className="flex flex-col">
             <label className="text-gray-600 font-medium mb-1">Email</label>
             <input
               type="text"
               placeholder="Enter Your Email"
-               onChange={(e)=>setEmail(e.target.value)}
+              onChange={(e) => setEmail(e.target.value)}
               className="border border-gray-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
@@ -55,22 +75,28 @@ function Register() {
             <input
               type="password"
               placeholder="Enter Your Password"
-               onChange={(e)=>setPassword(e.target.value)}
+              onChange={(e) => setPassword(e.target.value)}
               className="border border-gray-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
 
-          <button type="submit" onClick={handleRegister}  className="mt-4 bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition">Register</button>
+          <button
+            type="submit"
+            onClick={handleRegister}
+            className="mt-4 bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition"
+          >
+            Register
+          </button>
         </form>
-         <p className="text-gray-600 text-center mt-4">Or</p>
+        <p className="text-gray-600 text-center mt-4">Or</p>
         <p className="text-gray-700 text-center ">Already have an account?</p>
         <button
-            type="submit"
-            onClick={()=>navigate('/login')}
-            className=" w-full mt-4 bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition"
-          >
-           Login
-          </button>
+          type="submit"
+          onClick={() => navigate("/login")}
+          className=" w-full mt-4 bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition"
+        >
+          Login
+        </button>
       </div>
     </div>
   );
