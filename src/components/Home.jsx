@@ -24,12 +24,12 @@ function Home() {
   const navigate = useNavigate();
   //auto slide every 3 seconds
   useEffect(() => {
-    if(current ===0)  return;
+    if (current === 0) return;
     const timer = setInterval(() => {
       setCurrent((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
     }, 5000);
     return () => clearInterval(timer);
-  }, [slides.length]);
+  }, [current]);
   return (
     <div>
       <div className="w-full h-screen overflow-hidden relative">
@@ -47,9 +47,9 @@ function Home() {
                 <video
                   src={slide.url}
                   autoPlay
-                  loop
-                  muted
+                  unmute
                   playsInline
+                  onEnded={() => setCurrent((prev) => prev + 1)}
                   className="w-full h-full object-cover"
                 />
               ) : (
