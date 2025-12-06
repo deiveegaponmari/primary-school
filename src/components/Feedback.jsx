@@ -1,4 +1,5 @@
 import React from "react";
+import Announcement from "./Announcement";
 
 function Feedback() {
   return (
@@ -19,6 +20,7 @@ function Feedback() {
           environment.
         </p>
       </div>
+      <Announcement/>
     </div>
   );
 }

@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import ParentDetail from './ParentDetail';
 
 function Home() {
   const slides = [
@@ -21,10 +22,14 @@ function Home() {
     },
   ];
   const [current, setCurrent] = useState(0);
+  const [videoReadyToPlaySound, setVideoReadyToPlaySound] = useState(false);
+  const [showSoundButton, setShowSoundButton] = useState(false);
+  const videoRef = useRef(null);
+
   const navigate = useNavigate();
   //auto slide every 3 seconds
   useEffect(() => {
-    if (current === 0) return;
+    if (slides[current].type === "video") return;
     const timer = setInterval(() => {
       setCurrent((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
     }, 5000);
@@ -32,7 +37,7 @@ function Home() {
   }, [current]);
   return (
     <div>
-      <div className="w-full h-screen overflow-hidden relative">
+      <div className="w-full h-[calc(100vh-64px)] overflow-hidden relative">
         {/*   carousal wrapper */}
         <div
           className="flex transition-transform duration-700 h-full"
@@ -42,16 +47,37 @@ function Home() {
           }}
         >
           {slides.map((slide, index) => (
-            <div key={index} className="w-full h-full flex-shrink-0">
+            <div key={index} className="w-full h-full flex-shrink-0 relative ">
               {slide.type === "video" ? (
-                <video
-                  src={slide.url}
-                  autoPlay
-                  unmute
-                  playsInline
-                  onEnded={() => setCurrent((prev) => prev + 1)}
-                  className="w-full h-full object-cover"
-                />
+                <>
+                  <video
+                    ref={videoRef}
+                    src={slide.url}
+                    autoPlay
+                    muted={!videoReadyToPlaySound}
+                    playsInline
+                    onLoadedData={() => setShowSoundButton(true)}
+                    onEnded={() => {
+                      setShowSoundButton(false);
+                      setCurrent((prev) => prev + 1);
+                    }}
+                    className="w-full h-full object-cover"
+                  />
+                  {showSoundButton && current === 0 && (
+                    <button
+                      onClick={() => {
+                        setVideoReadyToPlaySound(true);
+                        videoRef.current.muted = false;
+                        videoRef.current.play();
+                        setShowSoundButton(false);
+                      }}
+                      className="absolute bottom-24 left-1/2 -translate-x-1/2 bg-white
+            text-black px-5 py-3 rounded-full font-semibold shadow-lg z-[999]"
+                    >
+                      🔊 Enable Sound
+                    </button>
+                  )}
+                </>
               ) : (
                 <img
                   src={slide.url}
@@ -107,6 +133,10 @@ function Home() {
         >
           Apply Now
         </button>
+      </div>
+      {/* role admin only show the below components */}
+      <div>
+        <ParentDetail/>
       </div>
     </div>
   );
