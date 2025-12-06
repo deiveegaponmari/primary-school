@@ -32,7 +32,7 @@ function Announcement() {
   return (
     <div className="bg-white shadow-lg rounded-xl p-6 w-full max-w-md mt-6">
       <h2 className="text-2xl font-semibold text-center text-gray-700 mb-4">
-        Send Announcement
+         Announcement Board
       </h2>
       <textarea
         className="w-full h-36 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 outline-none resize-none"
