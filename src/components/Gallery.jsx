@@ -28,27 +28,27 @@ function Gallery() {
         {/* Classroom Activities */}
         <Section title="Classroom Activities">
           <GalleryGrid images={[
-            "IMAGE_URL_1",
-            "IMAGE_URL_2",
-            "IMAGE_URL_3",
-            "IMAGE_URL_4",
+            "https://res.cloudinary.com/djlxdttvr/image/upload/v1765697794/WhatsApp_Image_2025-12-14_at_13.02.23_6eafa411_bmfder.jpg",
+            "https://res.cloudinary.com/djlxdttvr/image/upload/v1765697029/WhatsApp_Image_2025-12-11_at_10.50.57_4965ef82_cjrrj0.jpg",
+            "https://res.cloudinary.com/djlxdttvr/image/upload/v1765696908/WhatsApp_Image_2025-12-11_at_10.31.22_47606962_feaw6j.jpg",
+            "https://res.cloudinary.com/djlxdttvr/image/upload/v1765697127/WhatsApp_Image_2025-12-11_at_10.51.18_92eb58d1_qaalia.jpg",
           ]}/>
         </Section>
 
         {/* Cultural & Events */}
         <Section title="Cultural Programs & Events">
           <GalleryGrid images={[
-            "IMAGE_URL_5",
-            "IMAGE_URL_6",
-            "IMAGE_URL_7",
-            "IMAGE_URL_8",
+            "https://res.cloudinary.com/djlxdttvr/image/upload/v1765698130/WhatsApp_Image_2025-12-14_at_13.04.26_0b0ad7a8_uzbj1t.jpg",
+            "https://res.cloudinary.com/djlxdttvr/image/upload/v1765698071/WhatsApp_Image_2025-12-14_at_13.04.23_353ded83_vrzwab.jpg",
+            "https://res.cloudinary.com/djlxdttvr/image/upload/v1765698160/WhatsApp_Image_2025-12-14_at_13.04.27_5bad33b4_jbc3kf.jpg",
+            "https://res.cloudinary.com/djlxdttvr/image/upload/v1765698177/WhatsApp_Image_2025-12-14_at_13.04.28_d277be49_nailsw.jpg",
           ]}/>
         </Section>
 
         {/* Sports & Outdoor */}
         <Section title="Sports & Outdoor Activities">
           <GalleryGrid images={[
-            "IMAGE_URL_9",
+            "https://res.cloudinary.com/djlxdttvr/image/upload/v1765696927/WhatsApp_Image_2025-12-11_at_10.31.22_e86f06b5_takt8g.jpg",
             "IMAGE_URL_10",
             "IMAGE_URL_11",
             "IMAGE_URL_12",
