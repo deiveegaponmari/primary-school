@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import ParentDetail from './ParentDetail';
+import ParentDetail from "./ParentDetail";
 
 function Home() {
   const slides = [
@@ -120,7 +120,34 @@ function Home() {
           ›
         </button>
       </div>
-      <div className="bg-blue-500 text-white text-center py-16 shadow-lg mt-4">
+      {/*  about school */}
+      <div className="max-w-6xl mx-auto px-6 py-16 grid md:grid-cols-2 gap-10 items-center">
+        <img
+          src="https://res.cloudinary.com/djlxdttvr/image/upload/v1763977715/1_yxskqc.jpg"
+          className="rounded-2xl shadow-lg"
+          alt="School campus"
+        />
+
+        <div>
+          <h2 className="text-3xl font-bold text-blue-800 mb-4">
+            About Our School
+          </h2>
+          <p className="text-gray-700 leading-relaxed">
+            Sri Nataraja Primary School provides a safe, caring, and disciplined
+            environment where children build strong academic foundations and
+            moral values. Our experienced teachers guide students to grow with
+            confidence, curiosity, and creativity.
+          </p>
+          <button
+            onClick={() => navigate("/about")}
+            className="mt-6 bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-700"
+          >
+            Learn More
+          </button>
+        </div>
+      </div>
+
+      {/* <div className="bg-blue-500 text-white text-center py-16 shadow-lg mt-4">
         <h1 className="text-4xl font-extrabold tracking-wide">
           Welcome To Our School
         </h1>
@@ -133,10 +160,103 @@ function Home() {
         >
           Apply Now
         </button>
+      </div> */}
+      {/*  why choose our school */}
+      <div className="bg-gray-100 py-16">
+        <h2 className="text-3xl font-bold text-center text-blue-800 mb-12">
+          Why Choose Our School
+        </h2>
+
+        <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-8 px-6">
+          <div className="bg-white p-6 rounded-xl shadow hover:shadow-lg">
+            <h3 className="text-xl font-semibold text-blue-700 mb-2">
+              Qualified Teachers
+            </h3>
+            <p className="text-gray-600">
+              Dedicated and experienced educators focused on every child’s
+              growth.
+            </p>
+          </div>
+
+          <div className="bg-white p-6 rounded-xl shadow hover:shadow-lg">
+            <h3 className="text-xl font-semibold text-blue-700 mb-2">
+              Safe Environment
+            </h3>
+            <p className="text-gray-600">
+              A secure, friendly campus where children feel happy and confident.
+            </p>
+          </div>
+
+          <div className="bg-white p-6 rounded-xl shadow hover:shadow-lg">
+            <h3 className="text-xl font-semibold text-blue-700 mb-2">
+              Holistic Learning
+            </h3>
+            <p className="text-gray-600">
+              Academics, values, sports, arts, and life skills together.
+            </p>
+          </div>
+        </div>
       </div>
+
+      {/* Academic programs preview */}
+      <div className="max-w-6xl mx-auto px-6 py-16">
+        <h2 className="text-3xl font-bold text-center text-blue-800 mb-10">
+          Our Academic Programs
+        </h2>
+
+        <div className="grid md:grid-cols-2 gap-8">
+          <div className="bg-white p-6 rounded-xl shadow">
+            <h3 className="text-2xl font-semibold text-blue-700 mb-3">
+              Pre-Primary
+            </h3>
+            <p className="text-gray-600">
+              Learning through play, stories, creativity, and joyful
+              exploration.
+            </p>
+            <button
+              onClick={() => navigate("/preprimary")}
+              className="mt-4 text-blue-600 font-semibold"
+            >
+              View Program →
+            </button>
+          </div>
+
+          <div className="bg-white p-6 rounded-xl shadow">
+            <h3 className="text-2xl font-semibold text-blue-700 mb-3">
+              Primary
+            </h3>
+            <p className="text-gray-600">
+              Strong academic foundation with discipline, values, and
+              confidence.
+            </p>
+            <button
+              onClick={() => navigate("/primary")}
+              className="mt-4 text-blue-600 font-semibold"
+            >
+              View Program →
+            </button>
+          </div>
+        </div>
+      </div>
+      {/* admission */}
+      <div className="bg-blue-700 text-white py-16 text-center">
+        <h2 className="text-3xl font-bold mb-4">
+          Admissions Open for 2026–2027
+        </h2>
+        <p className="mb-6">
+          Give your child the best start to a successful future.
+        </p>
+        <button
+          onClick={() => navigate("/admissionform")}
+          className="bg-white text-blue-700 px-8 py-4 rounded-full font-semibold hover:bg-gray-200"
+        >
+          Apply Now
+        </button>
+      </div>
+
       {/* role admin only show the below components */}
       <div>
-        <ParentDetail/>
+        <ParentDetail />
       </div>
     </div>
   );
