@@ -33,37 +33,57 @@ function Home() {
   }, [current]);
   return (
     <div>
-      <div className="relative w-full overflow-hidden">
-        <div className="h-[60vh] sm:h-[70vh] md:h-[85vh] max-h-[900px]">
-          <div
-            className="flex h-full transition-transform duration-700 ease-in-out"
-            style={{
-              transform: `translateX(-${current * 100}%)`,
-            }}
-          >
-            {slides.map((slide, index) => (
-              <div key={index} className="w-full h-full flex-shrink-0 relative">
-                {slide.type === "video" ? (
+      <div className="w-full h-[calc(100vh-64px)] overflow-hidden relative">
+        {/*   carousal wrapper */}
+        <div
+          className="flex transition-transform duration-700 h-full"
+          style={{
+            transform: `translateX(-${current * 100}%)`,
+            width: `${slides.length * 100}%`,
+          }}
+        >
+          {slides.map((slide, index) => (
+            <div key={index} className="w-full h-full flex-shrink-0 relative ">
+              {slide.type === "video" ? (
+                <>
                   <video
                     ref={videoRef}
                     src={slide.url}
                     autoPlay
-                    muted
+                    muted={!videoReadyToPlaySound}
                     playsInline
-                    className="w-full h-full object-cover object-center"
+                    onLoadedData={() => setShowSoundButton(true)}
+                    onEnded={() => {
+                      setShowSoundButton(false);
+                      setCurrent((prev) => prev + 1);
+                    }}
+                    className="w-full h-full object-cover"
                   />
-                ) : (
-                  <img
-                    src={slide.url}
-                    alt="slide"
-                    className="w-full h-full object-cover object-center"
-                  />
-                )}
-              </div>
-            ))}
-          </div>
+                  {showSoundButton && current === 0 && (
+                    <button
+                      onClick={() => {
+                        setVideoReadyToPlaySound(true);
+                        videoRef.current.muted = false;
+                        videoRef.current.play();
+                        setShowSoundButton(false);
+                      }}
+                      className="absolute bottom-24 left-1/2 -translate-x-1/2 bg-white
+            text-black px-5 py-3 rounded-full font-semibold shadow-lg z-[999]"
+                    >
+                      🔊 Enable Sound
+                    </button>
+                  )}
+                </>
+              ) : (
+                <img
+                  src={slide.url}
+                  alt="school slide"
+                  className="w-full h-full object-cover"
+                />
+              )}
+            </div>
+          ))}
         </div>
-
         {/* Dots */}
         <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2">
           {slides.map((_, index) => (
@@ -73,11 +93,29 @@ function Home() {
               className={`w-3 h-3 rounded-full ${
                 current === index ? "bg-white" : "bg-gray-400"
               }`}
-            />
+            ></button>
           ))}
         </div>
-      </div>
+        {/* Left button */}
+        <button
+          onClick={() =>
+            setCurrent(current === 0 ? slides.length - 1 : current - 1)
+          }
+          className="absolute top-1/2 left-3 transform -translate-y-1/2 bg-black bg-opacity-40 text-white px-3 py-2 rounded-full"
+        >
+          ‹
+        </button>
 
+        {/* Right button */}
+        <button
+          onClick={() =>
+            setCurrent(current === slides.length - 1 ? 0 : current + 1)
+          }
+          className="absolute top-1/2 right-3 transform -translate-y-1/2 bg-black bg-opacity-40 text-white px-3 py-2 rounded-full"
+        >
+          ›
+        </button>
+      </div>
       {/*  about school */}
       <div className="max-w-6xl mx-auto px-6 py-16 grid md:grid-cols-2 gap-10 items-center">
         <img
