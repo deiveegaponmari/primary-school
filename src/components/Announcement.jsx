@@ -44,7 +44,7 @@ function Announcement() {
         onClick={handleSend}
         className="w-full bg-green-600 text-white font-semibold py-2 rounded-lg hover:bg-green-700 active:scale-95 transition-all mt-4"
       >
-        Send Via WhatsApp
+        Send Via Email
       </button>
       {/* <div className="mt-4 text-gray-600 text-sm">
         <strong>Recipients:</strong>
