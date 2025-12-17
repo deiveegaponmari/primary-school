@@ -4,15 +4,15 @@ import Announcement from "./Announcement";
 
 function ParentDetail() {
   const [parentName, setParentName] = useState("");
-  const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
   const [studentName, setStudentName] = useState("");
-  const [parentPhone,setParentPhone]=useState([]);
+ // const [parentPhone,setParentPhone]=useState([]);
 
   const handleSubmit = async () => {
     try {
-      const sendParentDetail = await api.post("/parents", {
+      const sendParentDetail = await api.post("/addparents", {
         parentName,
-        phone,
+        email,
         studentName,
       });
       console.log(sendParentDetail.data);
@@ -20,7 +20,7 @@ function ParentDetail() {
       alert("Parent Details added Successfully");
       //clear input fields
       setParentName("");
-      setPhone("");
+      setEmail("");
       setStudentName("");
     } catch (error) {
       console.error("Error posting data", error);
@@ -39,19 +39,19 @@ function ParentDetail() {
             <label>ParentName</label>
             <input
               type="text"
-              placeholder="Enter your parentName"
+              placeholder="Enter ParentName"
               onChange={(e) => setParentName(e.target.value)}
               value={parentName}
               className="w-full p-2 mt-1 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-400 outline-none"
             />
           </div>
           <div>
-            <label>PhoneNumber</label>
+            <label>Email</label>
             <input
-              type="text"
-              placeholder="Enter your phoneNumber"
-              onChange={(e) => setPhone(e.target.value)}
-              value={phone}
+              type="email"
+              placeholder="Enter ParentEmail"
+              onChange={(e) => setEmail(e.target.value)}
+              value={email}
               className="w-full p-2 mt-1 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-400 outline-none"
             />
           </div>
@@ -73,7 +73,7 @@ function ParentDetail() {
           </button>
         </div>
       </div>
-     <Announcement parentPhone={parentPhone}/>
+     <Announcement/>
     </div>
   );
 }

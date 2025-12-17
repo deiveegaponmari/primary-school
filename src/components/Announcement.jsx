@@ -10,7 +10,7 @@ function Announcement() {
   }, []);
 
   const fetchPhoneNumbers = async () => {
-    const response = await api.get("/parents");
+    const response = await api.get("/sendinfo-parents");
     console.log("response phonenumbers",response)
     const numbers = response.data.map((p) => p.phone);
     setParentNumbers(numbers);
