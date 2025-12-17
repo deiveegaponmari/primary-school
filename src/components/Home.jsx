@@ -32,18 +32,17 @@ function Home() {
     return () => clearInterval(timer);
   }, [current]);
   return (
-    <div>
-      <div className="w-full h-[calc(100vh-64px)] overflow-hidden relative">
+    <div  className="relative w-full overflow-hidden">
+      <div  className="h-[60vh] sm:h-[70vh] md:h-[85vh] max-h-[900px]">
         {/*   carousal wrapper */}
         <div
-          className="flex transition-transform duration-700 h-full"
+          className="flex h-full transition-transform duration-700 ease-in-out"
           style={{
             transform: `translateX(-${current * 100}%)`,
-            width: `${slides.length * 100}%`,
           }}
         >
           {slides.map((slide, index) => (
-            <div key={index} className="w-full h-full flex-shrink-0 relative ">
+            <div key={index} className="w-full h-full flex-shrink-0 relative">
               {slide.type === "video" ? (
                 <>
                   <video
@@ -57,7 +56,7 @@ function Home() {
                       setShowSoundButton(false);
                       setCurrent((prev) => prev + 1);
                     }}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover object-center"
                   />
                   {showSoundButton && current === 0 && (
                     <button
@@ -78,14 +77,14 @@ function Home() {
                 <img
                   src={slide.url}
                   alt="school slide"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover object-center"
                 />
               )}
             </div>
           ))}
         </div>
         {/* Dots */}
-        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2">
+        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2 z-10">
           {slides.map((_, index) => (
             <button
               key={index}
