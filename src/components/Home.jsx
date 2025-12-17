@@ -6,15 +6,15 @@ function Home() {
   const slides = [
     {
       type: "image",
-      url: "https://res.cloudinary.com/djlxdttvr/image/upload/v1763977715/1_yxskqc.jpg",
+      url: "https://res.cloudinary.com/djlxdttvr/image/upload/v1765697890/WhatsApp_Image_2025-12-14_at_13.02.29_32a96efa_xltfrn.jpg",
     },
     {
       type: "image",
-      url: "https://res.cloudinary.com/djlxdttvr/image/upload/v1763977801/2_efbj47.jpg",
+      url: "https://res.cloudinary.com/djlxdttvr/image/upload/v1765698145/WhatsApp_Image_2025-12-14_at_13.04.26_6f362e48_sco4mw.jpg",
     },
     {
       type: "image",
-      url: "https://res.cloudinary.com/djlxdttvr/image/upload/v1763977818/3_ftzkqa.jpg",
+      url: "https://res.cloudinary.com/djlxdttvr/image/upload/v1765697933/WhatsApp_Image_2025-12-14_at_13.03.04_a8b0d8b8_c6tfaz.jpg",
     },
   ];
   const [current, setCurrent] = useState(0);
