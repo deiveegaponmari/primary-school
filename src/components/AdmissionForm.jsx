@@ -24,7 +24,7 @@ function AdmissionForm() {
       setTimeout(() => navigate("/login"), 5000);
     }
     try {
-      const response = await api.post("/admission/Users",formData);
+      const response = await api.post("/admission/users",formData);
       setMessage(response.data.message);
       // Clear input fields
       setFormData({
