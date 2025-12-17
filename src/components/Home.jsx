@@ -5,10 +5,6 @@ import ParentDetail from "./ParentDetail";
 function Home() {
   const slides = [
     {
-      type: "video",
-      url: "https://res.cloudinary.com/djlxdttvr/video/upload/v1764743284/school_Intro_hago2h.mp4",
-    },
-    {
       type: "image",
       url: "https://res.cloudinary.com/djlxdttvr/image/upload/v1763977715/1_yxskqc.jpg",
     },
