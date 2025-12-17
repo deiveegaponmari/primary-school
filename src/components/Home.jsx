@@ -32,17 +32,19 @@ function Home() {
     return () => clearInterval(timer);
   }, [current]);
   return (
-    <div  className="relative w-full overflow-hidden">
-      <div  className="h-[60vh] sm:h-[70vh] md:h-[85vh] max-h-[900px]">
+    <div className="relative w-full overflow-hidden">
+      <div className="h-[45vh] sm:h-[60vh] md:h-[80vh] max-h-[900px]">
         {/*   carousal wrapper */}
         <div
-          className="flex h-full transition-transform duration-700 ease-in-out"
+          className="flex h-full w-full transition-transform duration-700 ease-in-out"
           style={{
             transform: `translateX(-${current * 100}%)`,
           }}
         >
           {slides.map((slide, index) => (
-            <div key={index} className="w-full h-full flex-shrink-0 relative">
+            <div key={index} 
+            className="w-full h-full flex-shrink-0 relative"
+            style={{ minWidth: "100%" }}>
               {slide.type === "video" ? (
                 <>
                   <video
@@ -74,11 +76,12 @@ function Home() {
                   )}
                 </>
               ) : (
-                <img
-                  src={slide.url}
-                  alt="school slide"
-                  className="w-full h-full object-cover object-center"
-                />
+                <div className="w-full h-full flex items-center justify-center bg-black">
+                  <img
+                    src={slide.url}
+                    className="max-w-full max-h-full object-contain sm:object-cover"
+                  />
+                </div>
               )}
             </div>
           ))}
