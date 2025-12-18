@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-
+import api from '../api/apiConfig';
 function Register() {
   const [user, setUser] = useState("");
   const [email, setEmail] = useState("");
@@ -12,8 +12,7 @@ function Register() {
     e.preventDefault();
     const finalRole=role.trim() === "" ? "User" : role;
     try {
-      const response = await axios.post(
-        "http://localhost:5000/api/user/register",
+      const response = await api.post("/user/register",
         {
           userName: user,
           email: email,
