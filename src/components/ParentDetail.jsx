@@ -16,7 +16,7 @@ function ParentDetail() {
         studentName,
       });
       console.log(sendParentDetail.data);
-      setParentPhone(sendParentDetail.data)
+      //setParentPhone(sendParentDetail.data)
       alert("Parent Details added Successfully");
       //clear input fields
       setParentName("");
