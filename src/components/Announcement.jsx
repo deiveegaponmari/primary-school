@@ -3,17 +3,17 @@ import api from "../api/apiConfig";
 
 function Announcement() {
   const [message, setMessage] = useState("");
-  const [parentNumbers, setParentNumbers] = useState([]);
+  const [parentEmails, setParentEmails] = useState([]);
 
   useEffect(() => {
-    fetchPhoneNumbers();
+    fetchParentEmails();
   }, []);
 
-  const fetchPhoneNumbers = async () => {
+  const fetchParentEmails = async () => {
     const response = await api.get("/sendinfo-parents");
-    console.log("response phonenumbers",response)
-    const numbers = response.data.map((p) => p.phone);
-    setParentNumbers(numbers);
+    console.log("response emails",response)
+    const emails = response.data.map((p) => p.email);
+    setParentEmails(emails);
   };
   const handleSend = async () => {
     if (!message.trim()) {
@@ -23,7 +23,7 @@ function Announcement() {
     try {
       //const parents = ["6385457813", "6383577105"]; // load from DB
 
-      await api.post("/announce", { parents: parentNumbers, message });
+      await api.post("/announce", { parents: parentEmails, message });
       setMessage("");
       alert("Message sent to parents!");
     } catch {}
