@@ -3,30 +3,19 @@ import api from "../api/apiConfig";
 
 function Announcement() {
   const [message, setMessage] = useState("");
-  const [parentEmails, setParentEmails] = useState([]);
 
-  useEffect(() => {
-    fetchParentEmails();
-  }, []);
-
-  const fetchParentEmails = async () => {
-    const response = await api.get("/sendinfo-parents");
-    console.log("response emails",response)
-    const emails = response.data.map((p) => p.email);
-    setParentEmails(emails);
-  };
   const handleSend = async () => {
     if (!message.trim()) {
       alert("Please enter a message");
       return;
     }
     try {
-      //const parents = ["6385457813", "6383577105"]; // load from DB
-
-      await api.post("/announce", { parents: parentEmails, message });
+      await api.post("/announce", { message });
       setMessage("");
       alert("Message sent to parents!");
-    } catch {}
+    } catch(error) {
+       alert("Failed to send announcement");
+    }
   };
 
   return (
@@ -46,14 +35,6 @@ function Announcement() {
       >
         Send Via Email
       </button>
-      {/* <div className="mt-4 text-gray-600 text-sm">
-        <strong>Recipients:</strong>
-        <p className="mt-1 text-gray-800">
-          {parentPhone.length > 0
-            ? parentPhone.join(", ")
-            : "No parent numbers added yet."}
-        </p>
-      </div> */}
     </div>
   );
 }
