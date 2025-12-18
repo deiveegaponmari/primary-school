@@ -54,10 +54,8 @@ function Register() {
               focus:outline-none focus:ring-2 focus:ring-blue-500"
             >
               <option value="">-- Select Role --</option>
-              <option value="Admin">Admin</option>
-              <option value="User">User</option>
-              <option value="Student">Student</option>
-              <option value="Parent">Parent</option>
+              <option value="admin">Admin</option>
+              <option value="parent">Parent</option>
             </select>
           </div>
           <div className="flex flex-col">
