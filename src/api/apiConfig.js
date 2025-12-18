@@ -1,7 +1,8 @@
 import axios from 'axios';
 
 const api=axios.create({
-    baseURL:"https://backend-school-3xgd.onrender.com/api" //backend url
+     baseURL:"https://backend-school-3xgd.onrender.com/api"  
+    /* baseURL:" http://localhost:5000/api" */  //backend url
 })
 
 //add a token to the request headers
